@@ -2,7 +2,9 @@ import React, { useEffect } from "react"
 import { loadStripe } from '@stripe/stripe-js';
 
 
-const stripePromise = loadStripe('pk_test_51O2BcqDYGqu4gEhP5ML89RGQoFtgQMriJb7JmZya261SVHzCLRQXjFLp534TbDz22gr75JLv4uNHKZ5UfEtr4zaR00Fgj9I0fQ');
+const stripePromise = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+  ? loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+  : null;
 
 export default function Home() {
   useEffect(() => {
