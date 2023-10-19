@@ -8,7 +8,7 @@ const handler = async(req: any, res: any) => {
              const session = await stripe.checkout.sessions.create({
                 line_items: [
                     {
-                        price: 'price_1O2DAlDYGqu4gEhPJTmtBjkC',
+                        price: process.env.PRICE_ID,
                         quantity: 1,
                     }
                 ],
@@ -28,3 +28,6 @@ const handler = async(req: any, res: any) => {
         res.status(405).end('Method Not Allowed');
     }
 }
+
+
+export default handler;
